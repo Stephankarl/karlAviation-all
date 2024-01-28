@@ -1,0 +1,30 @@
+{
+  "name": "karl-aviation-api",
+  "version": "1.0.0",
+  "description": "This is an API to keep track of your contract work as a freelance pilot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Stephan Karl",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "currency-formatter": "^1.5.9",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "mongoose": "^8.1.1",
+    "node": "^21.2.0"
+  },
+  "engines": {
+    "node": "20.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

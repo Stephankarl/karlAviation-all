@@ -1,0 +1,7 @@
+{
+    "development":{
+      "PORT": 5000,
+      "MONGODB_URI": "mongodb://db:27017/karlAviation",
+      "ACCESS_TOKEN_SECRET": "20a14bec79f046cd3f64ddfd13dbfeb115e457bbd86c1f3ef42e48d45f8939a9fe5cc3108013b4e59cbfaec0413b5ee2e4c7628cf5330712b322bed696b8667e"
+    }
+}
