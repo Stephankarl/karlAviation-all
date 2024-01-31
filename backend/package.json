@@ -18,11 +18,10 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.30.1",
-    "mongoose": "^8.1.1",
-    "node": "^21.2.0"
+    "mongoose": "^8.1.1"
   },
   "engines": {
-    "node": "20.10.0"
+    "node": "21.3.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
