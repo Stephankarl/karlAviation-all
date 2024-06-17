@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const message = require('../config/messages');
 const serverResponse = require('../utils/serverResponse');
-const getToken = require('../utils/handleToken');
+const generateToken = require('../utils/handleToken');
 
 //=======================================================
 
@@ -25,7 +25,7 @@ exports.registerUser = async (req, res) => {
             const savedUser = await newUser.save();
             
             if (savedUser) {
-                const token = await getToken(savedUser);
+                const token = await generateToken(savedUser);
                 return serverResponse.sendSuccess(res, message.SUCCESSFUL, token);
             }
         }
@@ -45,7 +45,7 @@ exports.loginUser = async (req, res, next) => {
         const isMatched = await bcrypt.compare(password, user.password);
         if (!isMatched) return serverResponse.sendError(res, message.AUTHENTICATION_FAILED);
         if (isMatched) {
-            const token = await getToken(user);
+            const token = await generateToken(user);
             return serverResponse.sendSuccess(res, message.SUCCESSFUL_LOGIN, token);
         }
     } catch (error) {

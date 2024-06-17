@@ -1,22 +1,35 @@
-const moment = require('moment')
 
 const asyncHandler = require('../middleware/asyncHandler')
 const Contract = require('../models/Contracts')
 const buildContract = require('../utils/buildContract')
+const serverResponse = require('../utils/serverResponse')
+const messages = require('../config/messages')
 
-// ********************************************
+//================================================
+//  GET CONTRACTS
 
-exports.getContracts = asyncHandler( async (req, res, next) => {
-    const contracts = await Contract.find({ userId: req.query.user}).sort({ startDate: 1 })
-    res.status(200).send(contracts)
-})
+exports.getContracts = async (req, res) => {
+    const { id } = req.user
+    try {
+        const contracts = await Contract.find({ userId: id }).sort({ startDate: 1 })
+        serverResponse.sendSuccess(res, messages.SUCCESSFUL, contracts)
+    } catch (error) {
+        serverResponse.sendError(res, messages.INTERNAL_SERVER_ERROR)
+    }
+}
 
 // *********************************************
 
-exports.addContract = asyncHandler( async (req, res, next) => {
-    const contract = await Contract.create(buildContract(req.body))
-    res.send(contract)
-})
+exports.addContract = async (req, res) => {
+    const { id } = req.user
+    try {
+        const contract = await Contract.create(buildContract(req.body, id))
+        serverResponse.sendSuccess(res, messages.SUCCESSFUL, contract)
+    } catch (error) {
+        serverResponse.sendError(res, messages.INTERNAL_SERVER_ERROR)
+    }
+}
+    
 
 // **********************************************
 

@@ -29,11 +29,6 @@ const ContractSchema = new Schema({
     expenses: Array,
     perDiem: { type: Boolean, default: true },
     perDiemRate: { type: Number, default: 150 },
-    
-    // complete: {
-    //     completed: { type: Boolean, default: false },
-    //     cancelled: { type: Boolean, default: false }
-    // },
 
     completed: { type: Boolean, default: false },
     cancelled: { type: Boolean, default: false },

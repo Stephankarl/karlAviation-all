@@ -1,6 +1,6 @@
 const moment = require('moment')
 
-const buildContract = (data) => {
+const buildContract = (data, userId) => {
     const { startDate, endDate, rate, retainer } = data
 
     //Calculate amount of days
@@ -15,7 +15,8 @@ const buildContract = (data) => {
     const updatedContract = {
         ...data,
         totalDays,
-        totalIncome
+        totalIncome,
+        userId
     }
     return updatedContract
 }

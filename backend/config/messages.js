@@ -1,6 +1,6 @@
 module.exports = {
     AUTHENTICATION_FAILED: {
-      code: 400,
+      code: 200,
       message: "Authentication failed. Please login with valid credentials.",
       success: false,
     },
